@@ -35,8 +35,12 @@ def parallel_treatment(document, nlp_transformer):
     return treat_this_document(document, nlp_transformer)
 
 
-
+"""
+This is the main process used to lemmatise our documents. It checks the input queue periodically
+for a document, then it uses a transformer-based model to process it.
+"""
 def worker(input_queue, output_queue, language, init_args):
+    # Load the appropriate model based on the language
     if language == 'fr':
         nlp_transformer = spacy.load('fr_dep_news_trf')
     elif language == 'en':
@@ -58,6 +62,7 @@ def worker(input_queue, output_queue, language, init_args):
     elif language == 'uk':
         nlp_transformer = spacy.load('uk_core_news_trf')
 
+    # Run until the main process indicates all documents have been treated
     while True:
         task = input_queue.get()
         if task == "STOP":
@@ -74,7 +79,9 @@ def worker(input_queue, output_queue, language, init_args):
             logging.info(f'worker crashed with {e}')
 
 
-
+"""
+Treat text to remove unwanted blank spaces and to ensure correct lemmatisation
+"""
 def transform_text(text):
     text = text.replace('\n', ' ')
     text = text.replace('\t', ' ')
