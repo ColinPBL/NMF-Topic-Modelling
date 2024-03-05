@@ -98,7 +98,9 @@ def transform_text(text):
     return text
 
 
-
+"""
+Translates POS tags from english to french
+"""
 def transform_tag(tag):
     tag = tag.lower()
     if tag == 'adp' or tag == 'p' or (len(tag) > 1 and tag[0] == 'p' and tag[1] == '+') or tag == 'prep':
@@ -165,7 +167,8 @@ def treat_this_document(text, nlp_transformer):
 
     except Exception as e:
         logging.info(f'treat_this_document crashed with {e}')
-
+    runtime = time.time() - start_time
+    logging.info(f"")
     return (doc_for_ngrams,
         tab_pos,
         these_sentences_norms, 
