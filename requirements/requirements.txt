@@ -9,6 +9,7 @@ scipy
 pandas
 statsmodels
 matplotlib
+umap-learn
 
 # Natural language processing and text processing
 spacy>=3.0.0,<4.0.0
