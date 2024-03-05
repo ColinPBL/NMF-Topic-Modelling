@@ -1,0 +1,24 @@
+# This file lists the requirements for the topic modelling notebook
+# It is meant to be used for fresh installs, in a virtual environment or otherwise
+
+# Numpy and Scipy
+numpy
+scipy
+
+# Data manipulation and visualisation
+pandas
+statsmodels
+matplotlib
+
+# Natural language processing and text processing
+spacy>=3.0.0,<4.0.0
+spacy-transformers>=1.0.0,<2.0.0
+cleantext
+scikit-learn
+bs4
+pyate
+
+# Miscellaneous
+tqdm
+adjustText
+psutil
