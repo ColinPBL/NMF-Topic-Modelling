@@ -22,6 +22,8 @@ cleantext
 scikit-learn
 bs4
 pyate
+transformers
+torch
 
 # Miscellaneous
 tqdm

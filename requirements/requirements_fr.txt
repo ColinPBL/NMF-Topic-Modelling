@@ -1,2 +1,2 @@
 # Downloads the french transformer model
-fr_dep_news_trf @ https://github.com/explosion/spacy-models/releases/download/fr_dep_news_trf-3.7.2/fr_dep_news_trf-3.7.2-py3-none-any.whl
+fr_dep_news_trf==3.7.2
