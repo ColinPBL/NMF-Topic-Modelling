@@ -1,6 +1,10 @@
 # This file lists the requirements for the topic modelling notebook
 # It is meant to be used for fresh installs, in a virtual environment or otherwise
 
+# Jupyter
+ipykernel
+nbformat
+
 # Numpy and Scipy
 numpy
 scipy
