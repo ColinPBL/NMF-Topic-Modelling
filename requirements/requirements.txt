@@ -14,6 +14,7 @@ pandas
 statsmodels
 matplotlib
 umap-learn
+unidecode
 
 # Natural language processing and text processing
 spacy>=3.0.0,<4.0.0
