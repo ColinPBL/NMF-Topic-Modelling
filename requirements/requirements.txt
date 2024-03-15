@@ -104,3 +104,4 @@ safetensors>=0.3.1
 tokenizers>=0.14,<0.19
 pynndescent>=0.5
 cloudpathlib>=0.7.0,<0.17.0
+tensorflow>=2.15
