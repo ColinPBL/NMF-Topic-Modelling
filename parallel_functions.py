@@ -133,7 +133,9 @@ def transform_tag(tag):
 
 
 
-
+"""
+Extracts all information required for future treatments in the pipeline
+"""
 def treat_this_document(text, nlp_transformer):
     start_time = time.time()
 
@@ -168,12 +170,44 @@ def treat_this_document(text, nlp_transformer):
     except Exception as e:
         logging.info(f'treat_this_document crashed with {e}')
     runtime = time.time() - start_time
-    logging.info(f"")
+    logging.info(f"Worker processed document in {runtime}s")
     return (doc_for_ngrams,
         tab_pos,
         these_sentences_norms, 
         these_sentences_lemmas)
 
+"""
+Does the same things as treat_this_document but is meant to be used with an already parsed document
+"""
+def treat_this_document_pipe(doc):
+    doc_for_ngrams = ''
+    tab_pos = []
+    these_sentences_norms = []
+    these_sentences_lemmas = []
+    for sent in doc.sents:
+        norms = []
+        lemmes = []
+        
+        for token in sent:
+            pos = transform_tag(token.pos_)
+            lemma = token.lemma_.lower()
+
+            if pos == 'np':
+                lemma = unidecode.unidecode(lemma)
+
+            if lemma not in [" ", "\n", "\t"]:
+                doc_for_ngrams += lemma + ' '
+                tab_pos.append([lemma, pos])
+                lemmes.append(lemma)
+                norms.append(token.norm_)
+
+        these_sentences_norms.append(" ".join(norms))
+        these_sentences_lemmas.append(" ".join(lemmes))
+
+        return (doc_for_ngrams,
+        tab_pos,
+        these_sentences_norms, 
+        these_sentences_lemmas)
 
 
 
