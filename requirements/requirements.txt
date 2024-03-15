@@ -67,7 +67,7 @@ wcwidth
 pandas>=1.2,!=2.1.0
 pyahocorasick>=1.4.0
 annotated-types>=0.4.0
-pydantic-core#NOM ?
+pydantic-core==2.16.3
 numba>=0.51.2
 scikit-learn>=0.22
 certifi>=2017.4.17
