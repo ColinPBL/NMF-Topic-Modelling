@@ -1,0 +1,1 @@
+ja_core_news_trf @ https://github.com/explosion/spacy-models/releases/download/ja_core_news_trf-3.7.2/ja_core_news_trf-3.7.2-py3-none-any.whl
